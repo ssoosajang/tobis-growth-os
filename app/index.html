@@ -143,7 +143,7 @@ async function dbDelete(id) { const db = await openDB(); return new Promise((res
 // ═══ 프롬프트 엔진 (원본 + 편집 가능한 기본값) ═══
 const TOBIS_CONTEXT = `[Tobis Strategist 역할]
 당신은 세계급 창업 검증 전략가 "Tobis Strategist"다.
-- 고객: 김재순 (Tobis Lab 대표, Fox Connect 창업자, 공공 RFP/SOW 전략가)
+- 고객: 김재순 (Tobis Lab 대표, 공공 RFP/SOW 전략가)
 - 도메인: 공간×교육, B2G/B2B, 한국 시장
 - 예산: 2,000만원 / 목표: 5년 후 매각
 - 스타일: 80/20, Verdict 먼저, 표·구조화, Action→Outcome
@@ -192,7 +192,7 @@ const STEPS = {
   },
   4: { code:"④", phase:"C", title:"유통 장악", tagline:"유통 없으면 사업도 없다.",
     engine:"AARRR + Bullseye(19채널) + CAC:LTV",
-    buildPrompt: (i) => `${TOBIS_CONTEXT}\n\n[Day 6 · 유통 장악 — Phase C]\n아이템: ${i.what}\n\n30일에 100만 도달 계획.\n\n[엔진]\n1. Bullseye 19채널 중 상위 5 + 근거\n2. AARRR 단계별 전략\n3. CAC < LTV/3\n4. 유기+유료 믹스\n5. 레버리지 중심 (1→N 구조)\n\n[필수]\n- 30일 일별 계획\n- 채널별 콘텐츠 형태\n- 주단위 KPI\n\n[Tobis]\n- 나라장터·교육청·학회·협회\n- Fox Connect 파트너 레버리지\n\n마지막에:\n【→ Day 7 Handoff】\n1. 주력 채널: ___\n2. 30일 예상 유입: ___\n3. 예상 CAC: ___${SELF_SCORING_TEMPLATE}`
+    buildPrompt: (i) => `${TOBIS_CONTEXT}\n\n[Day 6 · 유통 장악 — Phase C]\n아이템: ${i.what}\n\n30일에 100만 도달 계획.\n\n[엔진]\n1. Bullseye 19채널 중 상위 5 + 근거\n2. AARRR 단계별 전략\n3. CAC < LTV/3\n4. 유기+유료 믹스\n5. 레버리지 중심 (1→N 구조)\n\n[필수]\n- 30일 일별 계획\n- 채널별 콘텐츠 형태\n- 주단위 KPI\n\n[Tobis]\n- 나라장터·교육청·학회·협회\n- 파트너 네트워크 레버리지\n\n마지막에:\n【→ Day 7 Handoff】\n1. 주력 채널: ___\n2. 30일 예상 유입: ___\n3. 예상 CAC: ___${SELF_SCORING_TEMPLATE}`
   },
   7: { code:"⑦", phase:"C", title:"스케일 시스템", tagline:"대부분은 죽어라 일한다. 창업자는 시스템을 만든다.",
     engine:"E-Myth + EOS + Valuation Multiple 역산",
@@ -384,7 +384,7 @@ const SCORE_FEEDBACK = {
       diagnosis: 'CAC>LTV · 주력 채널 실행 불가',
       actions: [
         'A) Bullseye 재실행 — 상위 3채널 재선정',
-        'B) Fox Connect 파트너 네트워크 활용',
+        'B) 외부 파트너 네트워크 활용',
         'C) Kill — 유통 없으면 사업 없음'
       ],
       killRisk: 'Kill Gate 3 진입 전 탈락'
@@ -1536,9 +1536,9 @@ function BMCView({ item, items, selectedId, setSelectedId, onUpdate, onCopy, onB
       question: '이 사업 없이는 못 하는 파트너?',
       tip: '있으면 좋은 곳 ❌ → 없으면 불가능한 곳 ✅',
       examples: [
-        { type: '🏠 하드웨어', text: '가구 OEM 제조사 (생산)\n물류 파트너 (B2G 단체 배송)\nFox Connect 공공 영업 연계\n교육 인플루언서 (앰배서더)' },
+        { type: '🏠 하드웨어', text: '가구 OEM 제조사 (생산)\n물류 파트너 (B2G 단체 배송)\n공공 영업 파트너 연계\n교육 인플루언서 (앰배서더)' },
         { type: '💻 SaaS', text: 'AWS·Vercel (인프라)\nStripe (결제)\nSlack·Notion (통합 API)\nProduct Hunt·인플루언서 (런칭)' },
-        { type: '🎓 컨설팅', text: '건축·인테리어 시공사 (실행 파트너)\n학계 교수진 (자문)\nFox Connect 레퍼럴 네트워크\n공공 행정 전문가 그룹' }
+        { type: '🎓 컨설팅', text: '건축·인테리어 시공사 (실행 파트너)\n학계 교수진 (자문)\n파트너 레퍼럴 네트워크\n공공 행정 전문가 그룹' }
       ]
     },
     costStructure: {
