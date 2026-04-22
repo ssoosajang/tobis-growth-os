@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tobis Growth OS · 2천만 예산 지키는 7일 창업 검증</title>
+<meta name="description" content="Tobis Lab 10년 노하우 기반 창업 아이템 검증 시스템. 7일 안에 Go/Pivot/Kill 판정.">
+<meta property="og:title" content="Tobis Growth OS">
+<meta property="og:description" content="2천만 예산 지키는 7일 창업 검증 시스템">
+<meta property="og:type" content="website">
+
+<!-- Google Analytics 4 -->
+<!-- 설치 후 GA_MEASUREMENT_ID를 실제 값으로 교체 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XXXXXXXXXX');
+</script>
+
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Pretendard', 'Segoe UI', sans-serif; background: #0A0A0A; color: #E5E5E5; }
+  .gradient-text { background: linear-gradient(135deg, #F97316, #EF4444); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+  .card { background: #141414; border: 1px solid #262626; border-radius: 12px; }
+  .btn-primary { background: linear-gradient(135deg, #F97316, #EA580C); transition: all 0.2s; }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 25px rgba(249, 115, 22, 0.4); }
+  .fade-in { animation: fadeIn 0.6s ease-out; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+</style>
+</head>
+<body class="min-h-screen">
+
+<!-- Header -->
+<header class="border-b border-gray-800 bg-black/50 backdrop-blur sticky top-0 z-40">
+  <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+    <div class="flex items-center gap-3">
+      <span class="text-2xl">🦊</span>
+      <span class="font-bold text-lg">Tobis Growth OS</span>
+      <span class="text-xs text-gray-500 hidden md:inline">by Tobis Lab</span>
+    </div>
+    <a href="#beta" class="btn-primary px-4 py-2 rounded-lg text-sm font-semibold text-white">베타 신청</a>
+  </div>
+</header>
+
+<!-- Hero -->
+<section class="max-w-6xl mx-auto px-6 py-20 fade-in">
+  <div class="text-center">
+    <div class="inline-block mb-4 px-3 py-1 bg-orange-900/30 border border-orange-700 rounded-full text-xs text-orange-300">
+      🚀 Private Beta · 5명 한정 모집
+    </div>
+    <h1 class="text-4xl md:text-6xl font-bold mb-6 leading-tight">
+      <span class="gradient-text">2천만 예산</span> 지키는<br>
+      <span class="text-white">7일 창업 검증 시스템</span>
+    </h1>
+    <p class="text-lg md:text-xl text-gray-400 mb-8 max-w-2xl mx-auto">
+      Tobis Lab 10년 공간·교육 노하우가 담긴<br class="hidden md:inline">
+      창업 아이템 Go/Pivot/Kill 판정 도구
+    </p>
+    <div class="flex flex-col sm:flex-row gap-3 justify-center items-center">
+      <a href="#beta" onclick="trackEvent('hero_cta')" class="btn-primary px-8 py-4 rounded-lg font-bold text-white text-lg">
+        베타 5명 한정 신청 →
+      </a>
+      <a href="#how" class="px-8 py-4 rounded-lg font-semibold text-gray-300 hover:text-white border border-gray-700 hover:border-gray-500 transition">
+        사용법 보기
+      </a>
+    </div>
+    <p class="text-xs text-gray-600 mt-4">무료 · 100% 로컬 · 로그인 불필요</p>
+  </div>
+</section>
+
+<!-- Problem -->
+<section class="max-w-6xl mx-auto px-6 py-16">
+  <div class="text-center mb-12">
+    <h2 class="text-3xl font-bold mb-4">창업 84%가 <span class="text-red-400">아이템 검증 실패</span>로 망한다</h2>
+    <p class="text-gray-400">당신도 이런 문제 있지 않나?</p>
+  </div>
+  <div class="grid md:grid-cols-3 gap-6">
+    <div class="card p-6">
+      <div class="text-3xl mb-3">💸</div>
+      <h3 class="font-bold mb-2">아이디어만으로 2천만 투입</h3>
+      <p class="text-sm text-gray-400">시장 분석 없이 감으로 시작 → 6개월 후 현금 고갈</p>
+    </div>
+    <div class="card p-6">
+      <div class="text-3xl mb-3">📊</div>
+      <h3 class="font-bold mb-2">엑셀·노션으로 검증 시스템 부재</h3>
+      <p class="text-sm text-gray-400">체계 없이 생각만 반복 → 근거 없는 "될 것 같다"</p>
+    </div>
+    <div class="card p-6">
+      <div class="text-3xl mb-3">🎯</div>
+      <h3 class="font-bold mb-2">"Go" 판결을 감정으로 내림</h3>
+      <p class="text-sm text-gray-400">본인 아이템 냉정 평가 불가 → Kill 판정 회피</p>
+    </div>
+  </div>
+</section>
+
+<!-- Solution -->
+<section id="how" class="max-w-6xl mx-auto px-6 py-16">
+  <div class="text-center mb-12">
+    <h2 class="text-3xl font-bold mb-4">
+      <span class="gradient-text">7일</span>에 <span class="gradient-text">3 Kill Gate</span>로 판정
+    </h2>
+    <p class="text-gray-400">Tobis Lab 10년 검증 방법론을 구조화</p>
+  </div>
+  
+  <div class="grid md:grid-cols-3 gap-6 mb-12">
+    <div class="card p-6 border-l-4 border-blue-500">
+      <div class="text-xs text-blue-400 font-semibold mb-2">Phase A · 발견</div>
+      <h3 class="font-bold mb-3">Day 1~3</h3>
+      <ul class="text-sm text-gray-400 space-y-1">
+        <li>• 시장 분석 (TAM/SAM/SOM)</li>
+        <li>• 문제 우선순위 (JTBD)</li>
+        <li>• 경쟁자 약점 (SWOT)</li>
+      </ul>
+      <div class="mt-4 pt-4 border-t border-gray-800 text-xs text-red-400">
+        🚨 Gate 1: 시장성 통과 여부
+      </div>
+    </div>
+    <div class="card p-6 border-l-4 border-purple-500">
+      <div class="text-xs text-purple-400 font-semibold mb-2">Phase B · 설계</div>
+      <h3 class="font-bold mb-3">Day 4~5</h3>
+      <ul class="text-sm text-gray-400 space-y-1">
+        <li>• 오퍼 설계 (VPC · Van Westendorp)</li>
+        <li>• 바이럴 콘텐츠 (StoryBrand)</li>
+      </ul>
+      <div class="mt-4 pt-4 border-t border-gray-800 text-xs text-red-400">
+        🚨 Gate 2: WTP(돈 낼 의향) 검증
+      </div>
+    </div>
+    <div class="card p-6 border-l-4 border-orange-500">
+      <div class="text-xs text-orange-400 font-semibold mb-2">Phase C · 확장</div>
+      <h3 class="font-bold mb-3">Day 6~7</h3>
+      <ul class="text-sm text-gray-400 space-y-1">
+        <li>• 유통 장악 (AARRR · Bullseye)</li>
+        <li>• 스케일 시스템 (E-Myth · EOS)</li>
+      </ul>
+      <div class="mt-4 pt-4 border-t border-gray-800 text-xs text-red-400">
+        🚨 Gate 3: CAC<LTV/3 · 반복 매출
+      </div>
+    </div>
+  </div>
+
+  <div class="card p-6 bg-gradient-to-br from-orange-900/20 to-red-900/20 border-orange-700">
+    <div class="flex items-start gap-4">
+      <div class="text-4xl">⑧</div>
+      <div class="flex-1">
+        <h3 class="font-bold text-lg mb-2">Synthesizer · 최종 판결</h3>
+        <p class="text-sm text-gray-300 mb-3">7개 렌즈를 1개 결정으로 수렴. Multiplicative-Floor Scoring으로 치명적 약점 자동 감지.</p>
+        <div class="flex gap-2 flex-wrap">
+          <span class="px-3 py-1 bg-green-900/50 border border-green-700 rounded text-xs text-green-300">✅ Go</span>
+          <span class="px-3 py-1 bg-yellow-900/50 border border-yellow-700 rounded text-xs text-yellow-300">🔄 Pivot</span>
+          <span class="px-3 py-1 bg-red-900/50 border border-red-700 rounded text-xs text-red-300">❌ Kill</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Features -->
+<section class="max-w-6xl mx-auto px-6 py-16">
+  <div class="text-center mb-12">
+    <h2 class="text-3xl font-bold mb-4">핵심 기능</h2>
+  </div>
+  <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+    <div class="card p-5">
+      <div class="text-2xl mb-2">🔀</div>
+      <h4 class="font-semibold mb-1 text-sm">하이브리드 캔버스</h4>
+      <p class="text-xs text-gray-500">n8n 스타일 드래그·줌·팬</p>
+    </div>
+    <div class="card p-5">
+      <div class="text-2xl mb-2">🎯</div>
+      <h4 class="font-semibold mb-1 text-sm">Multiplicative-Floor Scoring</h4>
+      <p class="text-xs text-gray-500">치명적 약점 1개면 자동 Kill</p>
+    </div>
+    <div class="card p-5">
+      <div class="text-2xl mb-2">📋</div>
+      <h4 class="font-semibold mb-1 text-sm">BMC 학습 가이드</h4>
+      <p class="text-xs text-gray-500">하드웨어/SaaS/컨설팅 예시</p>
+    </div>
+    <div class="card p-5">
+      <div class="text-2xl mb-2">🔴🟡🟢</div>
+      <h4 class="font-semibold mb-1 text-sm">점수별 피드백 카드</h4>
+      <p class="text-xs text-gray-500">Pivot 방향 구체 제시</p>
+    </div>
+    <div class="card p-5">
+      <div class="text-2xl mb-2">📄</div>
+      <h4 class="font-semibold mb-1 text-sm">PDF 리포트</h4>
+      <p class="text-xs text-gray-500">매각·투자자 피칭 자료화</p>
+    </div>
+    <div class="card p-5">
+      <div class="text-2xl mb-2">💾</div>
+      <h4 class="font-semibold mb-1 text-sm">100% 로컬 저장</h4>
+      <p class="text-xs text-gray-500">IndexedDB · 개인정보 유출 0</p>
+    </div>
+    <div class="card p-5">
+      <div class="text-2xl mb-2">🤖</div>
+      <h4 class="font-semibold mb-1 text-sm">AI 교차 검증</h4>
+      <p class="text-xs text-gray-500">편향 경고 자동 감지</p>
+    </div>
+    <div class="card p-5">
+      <div class="text-2xl mb-2">⚡</div>
+      <h4 class="font-semibold mb-1 text-sm">단일 HTML · 무설치</h4>
+      <p class="text-xs text-gray-500">더블클릭 실행 · 영구 무료</p>
+    </div>
+  </div>
+</section>
+
+<!-- Creator -->
+<section class="max-w-4xl mx-auto px-6 py-16">
+  <div class="card p-8 bg-gradient-to-br from-gray-900 to-black">
+    <div class="flex items-start gap-6 flex-wrap">
+      <div class="text-5xl">👤</div>
+      <div class="flex-1 min-w-[250px]">
+        <h3 class="text-2xl font-bold mb-2">김재순 · Tobis Strategist</h3>
+        <div class="text-sm text-gray-400 mb-4 space-y-1">
+          <div>🏢 <b>Tobis Lab</b> 대표 · 공간 교육 R&D 10년</div>
+          <div>🦊 <b>Fox Connect</b> 창업자 · 공공 RFP/SOW 전략가</div>
+          <div>🎓 <b>한양여대·건국대</b> 겸임교수 · 미래 교육공간</div>
+        </div>
+        <p class="text-sm text-gray-300 leading-relaxed">
+          "10년간 쌓은 창업 검증 노하우를 도구로 만들었습니다.
+          2천만 예산 범위에서 7일 안에 Go/Kill 판정하는 시스템입니다.
+          5명 베타 테스터에게 먼저 공개합니다."
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Beta CTA -->
+<section id="beta" class="max-w-3xl mx-auto px-6 py-20">
+  <div class="card p-10 text-center bg-gradient-to-br from-orange-900/20 to-red-900/20 border-orange-700">
+    <div class="inline-block mb-4 px-3 py-1 bg-red-900/50 border border-red-700 rounded-full text-xs text-red-300">
+      ⏰ 베타 5명 한정 · 선착순
+    </div>
+    <h2 class="text-3xl md:text-4xl font-bold mb-4">
+      <span class="gradient-text">무료 베타</span> 참여
+    </h2>
+    <p class="text-gray-400 mb-8">
+      실제 창업 아이템 1개 7일 검증 + 72시간 내 피드백<br>
+      <span class="text-sm text-gray-500">(장점 1개, 단점 1개면 충분)</span>
+    </p>
+    
+    <a 
+      href="https://forms.gle/YOUR_FORM_ID_HERE" 
+      target="_blank" 
+      onclick="trackEvent('beta_apply')"
+      class="btn-primary inline-block px-10 py-4 rounded-lg font-bold text-white text-lg mb-6">
+      베타 신청서 작성 →
+    </a>
+    
+    <div class="text-xs text-gray-500 space-y-1">
+      <div>📝 신청 → ✉️ 24시간 내 접속 링크 발송 → 🚀 7일 검증</div>
+      <div>🎁 베타 참여자 정식 출시 시 <b class="text-orange-400">30% 할인</b></div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="max-w-3xl mx-auto px-6 py-16">
+  <h2 class="text-2xl font-bold mb-8 text-center">자주 묻는 질문</h2>
+  <div class="space-y-3">
+    <details class="card p-5 cursor-pointer">
+      <summary class="font-semibold">Q. 완전히 무료인가요?</summary>
+      <p class="mt-3 text-sm text-gray-400">네. 베타 기간 중 100% 무료입니다. 정식 출시 시에도 개인 사용은 무료 유지 예정입니다.</p>
+    </details>
+    <details class="card p-5 cursor-pointer">
+      <summary class="font-semibold">Q. 제 데이터는 어디에 저장되나요?</summary>
+      <p class="mt-3 text-sm text-gray-400">100% 브라우저 로컬(IndexedDB)에만 저장됩니다. 서버 전송 없음. 프라이버시 완벽 보호.</p>
+    </details>
+    <details class="card p-5 cursor-pointer">
+      <summary class="font-semibold">Q. 검증에 꼭 7일이 필요한가요?</summary>
+      <p class="mt-3 text-sm text-gray-400">아니요. 하루 1단계씩 7일이 기본이지만, 집중하면 2~3일 단축 가능합니다.</p>
+    </details>
+    <details class="card p-5 cursor-pointer">
+      <summary class="font-semibold">Q. 어떤 업종 아이템에 적용되나요?</summary>
+      <p class="mt-3 text-sm text-gray-400">하드웨어·SaaS·컨설팅 등 모든 업종. BMC 가이드에 3가지 업종 예시 내장.</p>
+    </details>
+    <details class="card p-5 cursor-pointer">
+      <summary class="font-semibold">Q. 기술 지식이 없어도 사용 가능한가요?</summary>
+      <p class="mt-3 text-sm text-gray-400">네. 더블클릭 실행·드래그·슬라이더 조작만. 설치·로그인 불필요.</p>
+    </details>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="border-t border-gray-800 mt-16">
+  <div class="max-w-6xl mx-auto px-6 py-10 text-center">
+    <div class="flex items-center justify-center gap-3 mb-3">
+      <span class="text-2xl">🦊</span>
+      <span class="font-bold">Tobis Growth OS</span>
+    </div>
+    <p class="text-xs text-gray-600 mb-2">© 2026 Tobis Lab · by 김재순</p>
+    <p class="text-xs text-gray-700">Built with 린 스타트업 원칙 · Private Beta</p>
+  </div>
+</footer>
+
+<script>
+  // Track CTA clicks
+  function trackEvent(action) {
+    if (typeof gtag !== 'undefined') {
+      gtag('event', action, {
+        'event_category': 'CTA',
+        'event_label': action
+      });
+    }
+  }
+
+  // Scroll depth tracking
+  let maxScroll = 0;
+  window.addEventListener('scroll', () => {
+    const scrollPercent = Math.round((window.scrollY + window.innerHeight) / document.body.scrollHeight * 100);
+    if (scrollPercent > maxScroll) {
+      maxScroll = scrollPercent;
+      if ([25, 50, 75, 100].includes(maxScroll) && typeof gtag !== 'undefined') {
+        gtag('event', 'scroll_depth', { 'percent': maxScroll });
+      }
+    }
+  });
+</script>
+
+</body>
+</html>
