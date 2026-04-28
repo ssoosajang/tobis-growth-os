@@ -41,18 +41,15 @@
       <span class="font-bold text-lg">Tobis Growth OS</span>
       <span class="text-xs text-gray-500 hidden md:inline">by Tobis Lab</span>
     </div>
-    <div class="flex items-center gap-2">
-      <a href="/app" onclick="trackEvent('header_app_open')" class="px-4 py-2 rounded-lg text-sm font-semibold text-gray-300 hover:text-white border border-gray-700 hover:border-gray-500 transition">앱 열기 →</a>
-      <a href="#beta" class="btn-primary px-4 py-2 rounded-lg text-sm font-semibold text-white">베타 신청</a>
-    </div>
+    <a href="/app" onclick="trackEvent('header_app_open')" class="btn-primary px-4 py-2 rounded-lg text-sm font-semibold text-white">검증 시작하기 →</a>
   </div>
 </header>
 
 <!-- Hero -->
 <section class="max-w-6xl mx-auto px-6 py-20 fade-in">
   <div class="text-center">
-    <div class="inline-block mb-4 px-3 py-1 bg-orange-900/30 border border-orange-700 rounded-full text-xs text-orange-300">
-      🚀 Private Beta · 5명 한정 모집
+    <div class="inline-block mb-4 px-3 py-1 bg-gray-900/60 border border-gray-700 rounded-full text-xs text-gray-300">
+      🦊 Tobis Growth OS · 사업 아이템 검증 도구
     </div>
     <h1 class="text-4xl md:text-6xl font-bold mb-6 leading-tight">
       <span class="gradient-text">2천만 예산</span> 지키는<br>
@@ -63,14 +60,14 @@
       창업 아이템 Go/Pivot/Kill 판정 도구
     </p>
     <div class="flex flex-col sm:flex-row gap-3 justify-center items-center">
-      <a href="#beta" onclick="trackEvent('hero_cta')" class="btn-primary px-8 py-4 rounded-lg font-bold text-white text-lg">
-        베타 5명 한정 신청 →
+      <a href="/app" onclick="trackEvent('hero_cta')" class="btn-primary px-8 py-4 rounded-lg font-bold text-white text-lg">
+        검증 시작하기 →
       </a>
-      <a href="/app" onclick="trackEvent('hero_app_try')" class="px-8 py-4 rounded-lg font-semibold text-white border border-orange-700 hover:border-orange-500 hover:bg-orange-900/20 transition text-lg">
-        🦊 바로 체험하기 →
+      <a href="#how" class="px-8 py-4 rounded-lg font-semibold text-gray-300 hover:text-white border border-gray-700 hover:border-gray-500 transition text-lg">
+        사용법 보기
       </a>
     </div>
-    <p class="text-xs text-gray-600 mt-4">무료 · 100% 로컬 · 로그인 불필요 · <a href="#how" class="underline hover:text-gray-400">사용법 보기</a></p>
+    <p class="text-xs text-gray-600 mt-4">무료 · 100% 로컬 · 로그인 불필요</p>
   </div>
 </section>
 
@@ -223,45 +220,30 @@
         </div>
         <p class="text-sm text-gray-300 leading-relaxed">
           "10년간 쌓은 창업 검증 노하우를 도구로 만들었습니다.
-          2천만 예산 범위에서 7일 안에 Go/Kill 판정하는 시스템입니다.
-          5명 베타 테스터에게 먼저 공개합니다."
+          2천만 예산 범위에서 7일 안에 Go/Kill 판정하는 시스템입니다."
         </p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Beta CTA -->
-<section id="beta" class="max-w-3xl mx-auto px-6 py-20">
+<!-- Final CTA -->
+<section class="max-w-3xl mx-auto px-6 py-20">
   <div class="card p-10 text-center bg-gradient-to-br from-orange-900/20 to-red-900/20 border-orange-700">
-    <div class="inline-block mb-4 px-3 py-1 bg-red-900/50 border border-red-700 rounded-full text-xs text-red-300">
-      ⏰ 베타 5명 한정 · 선착순
-    </div>
     <h2 class="text-3xl md:text-4xl font-bold mb-4">
-      <span class="gradient-text">무료 베타</span> 참여
+      지금 바로 <span class="gradient-text">검증을 시작</span>하세요
     </h2>
     <p class="text-gray-400 mb-8">
-      실제 창업 아이템 1개 7일 검증 + 72시간 내 피드백<br>
-      <span class="text-sm text-gray-500">(장점 1개, 단점 1개면 충분)</span>
+      설치·로그인 없이 브라우저에서 바로 실행<br>
+      <span class="text-sm text-gray-500">100% 로컬 저장 · 데이터 외부 전송 없음</span>
     </p>
-    
-    <a 
-      href="https://forms.gle/YOUR_FORM_ID_HERE" 
-      target="_blank" 
-      onclick="trackEvent('beta_apply')"
-      class="btn-primary inline-block px-10 py-4 rounded-lg font-bold text-white text-lg mb-6">
-      베타 신청서 작성 →
-    </a>
-    
-    <div class="text-xs text-gray-500 space-y-1">
-      <div>📝 신청 → ✉️ 24시간 내 접속 링크 발송 → 🚀 7일 검증</div>
-      <div>🎁 베타 참여자 정식 출시 시 <b class="text-orange-400">30% 할인</b></div>
-    </div>
 
-    <div class="mt-6 pt-6 border-t border-gray-800 text-sm">
-      <span class="text-gray-500">또는 신청 없이 </span>
-      <a href="/app" onclick="trackEvent('beta_skip_to_app')" class="text-orange-400 hover:text-orange-300 underline font-semibold">지금 바로 체험하기 →</a>
-    </div>
+    <a
+      href="/app"
+      onclick="trackEvent('final_cta')"
+      class="btn-primary inline-block px-10 py-4 rounded-lg font-bold text-white text-lg">
+      Tobis Growth OS 실행하기 →
+    </a>
   </div>
 </section>
 
@@ -271,7 +253,7 @@
   <div class="space-y-3">
     <details class="card p-5 cursor-pointer">
       <summary class="font-semibold">Q. 완전히 무료인가요?</summary>
-      <p class="mt-3 text-sm text-gray-400">네. 베타 기간 중 100% 무료입니다. 정식 출시 시에도 개인 사용은 무료 유지 예정입니다.</p>
+      <p class="mt-3 text-sm text-gray-400">네. 개인 사용은 100% 무료입니다. 설치·로그인·결제 없이 브라우저에서 바로 실행됩니다.</p>
     </details>
     <details class="card p-5 cursor-pointer">
       <summary class="font-semibold">Q. 제 데이터는 어디에 저장되나요?</summary>
@@ -295,17 +277,9 @@
 <!-- Footer -->
 <footer class="border-t border-gray-800 mt-16">
   <div class="max-w-6xl mx-auto px-6 py-10 text-center">
-    <div class="flex items-center justify-center gap-3 mb-3">
-      <span class="text-2xl">🦊</span>
-      <span class="font-bold">Tobis Growth OS</span>
-    </div>
-    <p class="text-xs text-gray-600 mb-2">© 2026 Tobis Lab · by 김재순</p>
-    <p class="text-xs text-gray-700">Built with 린 스타트업 원칙 · Private Beta</p>
-    <div class="mt-4 flex justify-center gap-4 text-xs">
-      <a href="/" class="text-gray-500 hover:text-gray-300">소개</a>
-      <a href="/app" class="text-gray-500 hover:text-gray-300">앱 열기</a>
-      <a href="#beta" class="text-gray-500 hover:text-gray-300">베타 신청</a>
-    </div>
+    <a href="https://tobislab.com/" target="_blank" rel="noopener" class="text-xs text-gray-500 hover:text-gray-300 transition">
+      Built by Tobis Lab
+    </a>
   </div>
 </footer>
 
