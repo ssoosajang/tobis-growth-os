@@ -8,6 +8,7 @@
 <meta property="og:title" content="Tobis Growth OS">
 <meta property="og:description" content="2천만 예산 지키는 7일 창업 검증 시스템">
 <meta property="og:type" content="website">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%23002C5F'/><path d='M50 10 L61.8 38.2 L92 38.2 L67.6 56.6 L79.4 85 L50 66.6 L20.6 85 L32.4 56.6 L8 38.2 L38.2 38.2 Z' fill='%2300AAD2'/></svg>">
 
 <!-- Google Analytics 4 -->
 <!-- 설치 후 GA_MEASUREMENT_ID를 실제 값으로 교체 -->
@@ -40,7 +41,10 @@
       <span class="font-bold text-lg">Tobis Growth OS</span>
       <span class="text-xs text-gray-500 hidden md:inline">by Tobis Lab</span>
     </div>
-    <a href="#beta" class="btn-primary px-4 py-2 rounded-lg text-sm font-semibold text-white">베타 신청</a>
+    <div class="flex items-center gap-2">
+      <a href="/app" onclick="trackEvent('header_app_open')" class="px-4 py-2 rounded-lg text-sm font-semibold text-gray-300 hover:text-white border border-gray-700 hover:border-gray-500 transition">앱 열기 →</a>
+      <a href="#beta" class="btn-primary px-4 py-2 rounded-lg text-sm font-semibold text-white">베타 신청</a>
+    </div>
   </div>
 </header>
 
@@ -62,11 +66,11 @@
       <a href="#beta" onclick="trackEvent('hero_cta')" class="btn-primary px-8 py-4 rounded-lg font-bold text-white text-lg">
         베타 5명 한정 신청 →
       </a>
-      <a href="#how" class="px-8 py-4 rounded-lg font-semibold text-gray-300 hover:text-white border border-gray-700 hover:border-gray-500 transition">
-        사용법 보기
+      <a href="/app" onclick="trackEvent('hero_app_try')" class="px-8 py-4 rounded-lg font-semibold text-white border border-orange-700 hover:border-orange-500 hover:bg-orange-900/20 transition text-lg">
+        🦊 바로 체험하기 →
       </a>
     </div>
-    <p class="text-xs text-gray-600 mt-4">무료 · 100% 로컬 · 로그인 불필요</p>
+    <p class="text-xs text-gray-600 mt-4">무료 · 100% 로컬 · 로그인 불필요 · <a href="#how" class="underline hover:text-gray-400">사용법 보기</a></p>
   </div>
 </section>
 
@@ -253,6 +257,11 @@
       <div>📝 신청 → ✉️ 24시간 내 접속 링크 발송 → 🚀 7일 검증</div>
       <div>🎁 베타 참여자 정식 출시 시 <b class="text-orange-400">30% 할인</b></div>
     </div>
+
+    <div class="mt-6 pt-6 border-t border-gray-800 text-sm">
+      <span class="text-gray-500">또는 신청 없이 </span>
+      <a href="/app" onclick="trackEvent('beta_skip_to_app')" class="text-orange-400 hover:text-orange-300 underline font-semibold">지금 바로 체험하기 →</a>
+    </div>
   </div>
 </section>
 
@@ -292,6 +301,11 @@
     </div>
     <p class="text-xs text-gray-600 mb-2">© 2026 Tobis Lab · by 김재순</p>
     <p class="text-xs text-gray-700">Built with 린 스타트업 원칙 · Private Beta</p>
+    <div class="mt-4 flex justify-center gap-4 text-xs">
+      <a href="/" class="text-gray-500 hover:text-gray-300">소개</a>
+      <a href="/app" class="text-gray-500 hover:text-gray-300">앱 열기</a>
+      <a href="#beta" class="text-gray-500 hover:text-gray-300">베타 신청</a>
+    </div>
   </div>
 </footer>
 
