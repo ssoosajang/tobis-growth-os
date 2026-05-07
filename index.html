@@ -4,14 +4,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Tobis Growth OS · 사업성 판정 도구</title>
-<meta name="description" content="2천만 예산을 쓰기 전, 7일 안에 사업 아이템을 Go/Pivot/Kill로 검증하세요. Tobis Lab의 실험형 Growth OS.">
+<meta name="description" content="2천만 원 쓰기 전, 7일 안에 사업성을 Go/Pivot/Kill로 판정하세요. Tobis Lab의 실험형 Growth OS.">
 <meta property="og:title" content="Tobis Growth OS">
-<meta property="og:description" content="2천만 예산을 쓰기 전, 7일 안에 사업 아이템을 검증하세요">
+<meta property="og:description" content="2천만 원 쓰기 전, 7일 안에 사업성을 판정하세요">
 <meta property="og:type" content="website">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%23002C5F'/><path d='M50 10 L61.8 38.2 L92 38.2 L67.6 56.6 L79.4 85 L50 66.6 L20.6 85 L32.4 56.6 L8 38.2 L38.2 38.2 Z' fill='%2300AAD2'/></svg>">
 
 <!-- Google Analytics 4 -->
-<!-- 설치 후 GA_MEASUREMENT_ID를 실제 값으로 교체 -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -20,138 +19,287 @@
   gtag('config', 'G-XXXXXXXXXX');
 </script>
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <script src="https://cdn.tailwindcss.com"></script>
 <style>
-  body { font-family: -apple-system, BlinkMacSystemFont, 'Pretendard', 'Segoe UI', sans-serif; background: #0A0A0A; color: #E5E5E5; }
-  .gradient-text { background: linear-gradient(135deg, #F97316, #EF4444); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-  .card { background: #141414; border: 1px solid #262626; border-radius: 12px; }
-  .btn-primary { background: linear-gradient(135deg, #F97316, #EA580C); transition: all 0.2s; }
-  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 25px rgba(249, 115, 22, 0.4); }
-  .fade-in { animation: fadeIn 0.6s ease-out; }
-  @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+  :root {
+    --bg: #08090a;
+    --bg-panel: #0f1011;
+    --bg-elevated: #191a1b;
+    --bg-secondary: #28282c;
+    --text-primary: #f7f8f8;
+    --text-secondary: #d0d6e0;
+    --text-tertiary: #8a8f98;
+    --text-quaternary: #62666d;
+    --border-subtle: rgba(255,255,255,0.05);
+    --border-standard: rgba(255,255,255,0.08);
+    --border-strong: rgba(255,255,255,0.15);
+    --accent: #F97316;
+    --accent-hover: #EA580C;
+  }
+  body {
+    font-family: 'Pretendard', 'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+    background: var(--bg);
+    color: var(--text-primary);
+    font-feature-settings: "cv01", "ss03";
+    -webkit-font-smoothing: antialiased;
+  }
+  .serif {
+    font-family: 'Noto Serif KR', Georgia, 'Times New Roman', serif;
+    font-weight: 500;
+    letter-spacing: -0.015em;
+  }
+  .display {
+    font-family: 'Noto Serif KR', Georgia, serif;
+    font-weight: 500;
+    letter-spacing: -0.025em;
+    line-height: 1.12;
+  }
+  .gradient-text {
+    background: linear-gradient(135deg, #F97316, #EF4444);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .card {
+    background: var(--bg-elevated);
+    border: 1px solid var(--border-subtle);
+    border-radius: 12px;
+    transition: border-color 220ms ease, transform 220ms ease;
+  }
+  .card:hover {
+    border-color: var(--border-standard);
+  }
+  .btn-primary {
+    background: var(--accent);
+    transition: all 200ms ease;
+    box-shadow: 0 1px 0 rgba(255,255,255,0.08) inset, 0 8px 20px -8px rgba(249,115,22,0.4);
+  }
+  .btn-primary:hover {
+    background: var(--accent-hover);
+    transform: translateY(-1px);
+    box-shadow: 0 1px 0 rgba(255,255,255,0.1) inset, 0 12px 28px -10px rgba(249,115,22,0.5);
+  }
+  .btn-secondary {
+    background: rgba(255,255,255,0.02);
+    border: 1px solid var(--border-standard);
+    color: var(--text-secondary);
+    transition: all 200ms ease;
+  }
+  .btn-secondary:hover {
+    background: rgba(255,255,255,0.05);
+    border-color: var(--border-strong);
+    color: var(--text-primary);
+  }
+
+  /* Browser chrome mockup */
+  .browser-chrome {
+    background: var(--bg-elevated);
+    border: 1px solid var(--border-standard);
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 40px 100px -30px rgba(0,0,0,0.7), 0 20px 40px -20px rgba(249,115,22,0.08);
+  }
+  .browser-bar {
+    background: var(--bg-secondary);
+    border-bottom: 1px solid var(--border-subtle);
+    padding: 11px 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .browser-dot {
+    width: 11px; height: 11px; border-radius: 50%;
+  }
+  .preview-node {
+    transition: all 220ms ease;
+  }
+  .preview-node:hover {
+    transform: translateY(-2px);
+  }
+
+  .fade-in { animation: fadeIn 0.7s cubic-bezier(0.16, 1, 0.3, 1); }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+
+  /* Subtle grid overlay for hero (Linear-style ambient) */
+  .hero-bg {
+    position: relative;
+  }
+  .hero-bg::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      radial-gradient(ellipse at top, rgba(249,115,22,0.06), transparent 60%),
+      radial-gradient(ellipse at bottom, rgba(94,106,210,0.04), transparent 60%);
+    pointer-events: none;
+    z-index: 0;
+  }
+  .hero-bg > * { position: relative; z-index: 1; }
+
+  details summary { list-style: none; cursor: pointer; }
+  details summary::-webkit-details-marker { display: none; }
+  details[open] summary { color: var(--accent); }
 </style>
 </head>
 <body class="min-h-screen">
 
 <!-- Header -->
-<header class="border-b border-gray-800 bg-black/50 backdrop-blur sticky top-0 z-40">
+<header class="sticky top-0 z-40 backdrop-blur-md" style="border-bottom: 1px solid var(--border-subtle); background: rgba(8,9,10,0.75);">
   <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
     <div class="flex items-center gap-3">
-      <span class="text-2xl">🦊</span>
-      <span class="font-bold text-lg">Tobis Growth OS</span>
-      <span class="text-xs text-gray-500 hidden md:inline">by Tobis Lab</span>
+      <span class="text-xl">🦊</span>
+      <span class="font-semibold text-base" style="color: var(--text-primary);">Tobis Growth OS</span>
+      <span class="text-xs hidden md:inline" style="color: var(--text-tertiary);">by Tobis Lab</span>
     </div>
     <a href="/app" onclick="trackEvent('header_app_open')" class="btn-primary px-4 py-2 rounded-lg text-sm font-semibold text-white">검증 시작하기 →</a>
   </div>
 </header>
 
 <!-- Hero -->
-<section class="max-w-6xl mx-auto px-6 py-20 fade-in">
-  <div class="text-center">
-    <div class="inline-block mb-4 px-3 py-1 bg-gray-900/60 border border-gray-700 rounded-full text-xs text-gray-300">
+<section class="hero-bg max-w-6xl mx-auto px-6 pt-24 pb-12 fade-in">
+  <div class="text-center max-w-4xl mx-auto">
+    <div class="inline-block mb-7 px-3 py-1 rounded-full text-xs" style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-standard); color: var(--text-tertiary);">
       🦊 Tobis Growth OS · 사업 아이템 검증 도구
     </div>
-    <h1 class="text-4xl md:text-6xl font-bold mb-6 leading-tight">
+    <h1 class="display text-5xl md:text-7xl mb-8">
       <span class="gradient-text">2천만 원</span> 쓰기 전,<br>
-      <span class="text-white">7일 안에 사업성을 판정하세요</span>
+      7일 안에 사업성을 판정하세요
     </h1>
-    <p class="text-lg md:text-xl text-gray-400 mb-8 max-w-3xl mx-auto">
+    <p class="text-lg md:text-xl mb-10 max-w-3xl mx-auto leading-relaxed" style="color: var(--text-secondary);">
       비즈니스 경력 20년+, Tobis Lab 2014년 설립·운영 경험을 바탕으로<br class="hidden md:inline">
       아이템의 시장성·실행성·수익성·예산 적합성을 Go/Pivot/Kill로 판정합니다
     </p>
     <div class="flex flex-col sm:flex-row gap-3 justify-center items-center">
-      <a href="/app" onclick="trackEvent('hero_cta')" class="btn-primary px-8 py-4 rounded-lg font-bold text-white text-lg">
+      <a href="/app" onclick="trackEvent('hero_cta')" class="btn-primary px-8 py-4 rounded-lg font-semibold text-white text-base">
         검증 시작하기 →
       </a>
-      <a href="#how" class="px-8 py-4 rounded-lg font-semibold text-gray-300 hover:text-white border border-gray-700 hover:border-gray-500 transition text-lg">
+      <a href="#how" class="btn-secondary px-8 py-4 rounded-lg font-medium text-base">
         사용법 보기
       </a>
     </div>
-    <p class="text-xs text-gray-600 mt-4">로그인 불필요 · 100% 로컬 저장 · 브라우저 실행</p>
+    <p class="text-xs mt-6" style="color: var(--text-quaternary);">로그인 불필요 · 100% 로컬 저장 · 브라우저 실행</p>
+  </div>
+
+  <!-- Browser chrome mockup -->
+  <div class="mt-20 max-w-5xl mx-auto browser-chrome">
+    <div class="browser-bar">
+      <div class="browser-dot" style="background: #ff5f57;"></div>
+      <div class="browser-dot" style="background: #febc2e;"></div>
+      <div class="browser-dot" style="background: #28c840;"></div>
+      <div class="ml-4 px-3 py-1 rounded text-xs flex-1 max-w-md" style="background: rgba(255,255,255,0.04); border: 1px solid var(--border-subtle); color: var(--text-tertiary);">
+        🔒 tobis-growth-os.vercel.app/app
+      </div>
+    </div>
+    <div class="p-5 grid grid-cols-12 gap-3" style="background: var(--bg); min-height: 360px;">
+      <aside class="col-span-3 space-y-2">
+        <div class="px-3 py-2 rounded-md text-xs font-semibold text-white text-center" style="background: var(--accent);">+ 새 아이템</div>
+        <div class="px-3 py-2 rounded-md text-xs" style="background: var(--bg-elevated); border: 1px solid var(--border-subtle); color: var(--text-secondary);">캐럴형 책걸상</div>
+        <div class="px-3 py-2 rounded-md text-xs" style="color: var(--text-tertiary);">교육공간 RFP 컨설팅</div>
+        <div class="px-3 py-2 rounded-md text-xs" style="color: var(--text-tertiary);">공공조달 SaaS</div>
+      </aside>
+      <main class="col-span-9 rounded-lg p-4 relative overflow-hidden" style="background: var(--bg-elevated); border: 1px solid var(--border-subtle); min-height: 320px;">
+        <svg class="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 600 320" preserveAspectRatio="none">
+          <path d="M 130 70 Q 250 70 280 150" stroke="rgba(255,107,53,0.35)" stroke-width="1.5" fill="none" stroke-dasharray="4 3"/>
+          <path d="M 320 160 Q 420 200 480 270" stroke="rgba(255,107,53,0.35)" stroke-width="1.5" fill="none" stroke-dasharray="4 3"/>
+          <path d="M 90 140 L 210 70" stroke="rgba(94,106,210,0.3)" stroke-width="1.5" fill="none" stroke-dasharray="4 3"/>
+        </svg>
+        <div class="preview-node absolute top-5 left-5 px-3 py-2 rounded-lg text-xs font-medium" style="background: rgba(6,95,70,0.4); border: 1px solid #10B981; border-left: 3px solid #10B981; color: #6EE7B7;">🚀 Start · 캐럴형 책걸상</div>
+        <div class="preview-node absolute top-5 right-5 px-3 py-2 rounded-lg text-xs" style="background: var(--bg-secondary); border: 1px solid var(--border-standard); border-left: 3px solid #3B82F6; color: var(--text-secondary);">Day 1 · TAM/SAM/SOM</div>
+        <div class="preview-node absolute top-1/3 left-1/3 px-3 py-2 rounded-lg text-xs" style="background: var(--bg-secondary); border: 1px solid var(--border-standard); border-left: 3px solid #8B5CF6; color: var(--text-secondary);">Day 4 · WTP 검증</div>
+        <div class="preview-node absolute bottom-5 left-5 px-3 py-2 rounded-lg text-xs" style="background: var(--bg-secondary); border: 1px solid var(--border-standard); border-left: 3px solid #F59E0B; color: var(--text-secondary);">Day 7 · CAC&lt;LTV/3</div>
+        <div class="preview-node absolute bottom-5 right-5 px-4 py-3 rounded-lg text-xs font-semibold" style="background: linear-gradient(135deg, #7C2D12, #9A3412); border: 1px solid #F97316; color: white;">⑧ Synthesizer · Go</div>
+      </main>
+    </div>
   </div>
 </section>
 
 <!-- Problem -->
-<section class="max-w-6xl mx-auto px-6 py-16">
-  <div class="text-center mb-12">
-    <h2 class="text-3xl font-bold mb-4">많은 초기 사업은 <span class="text-orange-400">검증보다 실행</span>에 먼저 예산을 씁니다</h2>
-    <p class="text-gray-400">문제는 아이디어가 아니라, 검증 없이 예산을 투입하는 순서입니다</p>
+<section class="max-w-6xl mx-auto px-6 py-24">
+  <div class="text-center mb-16 max-w-3xl mx-auto">
+    <h2 class="serif text-3xl md:text-4xl mb-5" style="line-height: 1.25;">
+      많은 초기 사업은 <span class="gradient-text">검증보다 실행</span>에<br class="hidden md:inline">
+      먼저 예산을 씁니다
+    </h2>
+    <p class="text-base" style="color: var(--text-tertiary);">문제는 아이디어가 아니라, 검증 없이 돈과 시간을 먼저 투입하는 순서입니다</p>
   </div>
-  <div class="grid md:grid-cols-3 gap-6">
-    <div class="card p-6">
-      <div class="text-3xl mb-3">💸</div>
-      <h3 class="font-bold mb-2">아이디어만으로 2천만 투입</h3>
-      <p class="text-sm text-gray-400">시장 분석 없이 감으로 시작 → 6개월 후 현금 고갈</p>
+  <div class="grid md:grid-cols-3 gap-5">
+    <div class="card p-7">
+      <div class="text-3xl mb-4">💸</div>
+      <h3 class="font-semibold mb-2 text-base" style="color: var(--text-primary);">아이디어만으로 2천만 투입</h3>
+      <p class="text-sm leading-relaxed" style="color: var(--text-tertiary);">시장 분석 없이 감으로 시작 → 6개월 후 현금 고갈</p>
     </div>
-    <div class="card p-6">
-      <div class="text-3xl mb-3">📊</div>
-      <h3 class="font-bold mb-2">엑셀·노션으로 검증 시스템 부재</h3>
-      <p class="text-sm text-gray-400">체계 없이 생각만 반복 → 근거 없는 "될 것 같다"</p>
+    <div class="card p-7">
+      <div class="text-3xl mb-4">📊</div>
+      <h3 class="font-semibold mb-2 text-base" style="color: var(--text-primary);">검증 시스템 부재</h3>
+      <p class="text-sm leading-relaxed" style="color: var(--text-tertiary);">엑셀·노션으로 체계 없이 생각만 반복 → 근거 없는 "될 것 같다"</p>
     </div>
-    <div class="card p-6">
-      <div class="text-3xl mb-3">🎯</div>
-      <h3 class="font-bold mb-2">"Go" 판결을 감정으로 내림</h3>
-      <p class="text-sm text-gray-400">본인 아이템 냉정 평가 불가 → Kill 판정 회피</p>
+    <div class="card p-7">
+      <div class="text-3xl mb-4">🎯</div>
+      <h3 class="font-semibold mb-2 text-base" style="color: var(--text-primary);">감정으로 Go 판단</h3>
+      <p class="text-sm leading-relaxed" style="color: var(--text-tertiary);">본인 아이템 냉정 평가 불가 → Kill 판정 회피</p>
     </div>
   </div>
 </section>
 
 <!-- Solution -->
-<section id="how" class="max-w-6xl mx-auto px-6 py-16">
-  <div class="text-center mb-12">
-    <h2 class="text-3xl font-bold mb-4">
+<section id="how" class="max-w-6xl mx-auto px-6 py-24">
+  <div class="text-center mb-16 max-w-3xl mx-auto">
+    <h2 class="serif text-3xl md:text-4xl mb-5" style="line-height: 1.25;">
       <span class="gradient-text">7일</span>에 <span class="gradient-text">3 Kill Gate</span>로 판정
     </h2>
-    <p class="text-gray-400">전시디자인·공간 브랜딩·교육공간·공공조달·RFP/SOW 프로젝트 경험을 바탕으로 사업 아이템의 실행 가능성을 구조화합니다</p>
+    <p class="text-base" style="color: var(--text-tertiary);">전시디자인·공간 브랜딩·교육공간·공공조달·RFP/SOW 프로젝트 경험을 바탕으로 사업 아이템의 실행 가능성을 구조화합니다</p>
   </div>
-  
-  <div class="grid md:grid-cols-3 gap-6 mb-12">
-    <div class="card p-6 border-l-4 border-blue-500">
-      <div class="text-xs text-blue-400 font-semibold mb-2">Phase A · 발견</div>
-      <h3 class="font-bold mb-3">Day 1~3</h3>
-      <ul class="text-sm text-gray-400 space-y-1">
-        <li>• 시장 분석 (TAM/SAM/SOM)</li>
-        <li>• 문제 우선순위 (JTBD)</li>
-        <li>• 경쟁자 약점 (SWOT)</li>
+
+  <div class="grid md:grid-cols-3 gap-5 mb-6">
+    <div class="card p-7" style="border-left: 3px solid #3B82F6;">
+      <div class="text-xs font-semibold mb-3" style="color: #60A5FA; letter-spacing: 0.05em;">PHASE A · 발견</div>
+      <h3 class="serif text-xl mb-4" style="color: var(--text-primary);">Day 1~3</h3>
+      <ul class="text-sm space-y-2" style="color: var(--text-tertiary);">
+        <li>· 시장 분석 (TAM/SAM/SOM)</li>
+        <li>· 문제 우선순위 (JTBD)</li>
+        <li>· 경쟁자 약점 (SWOT)</li>
       </ul>
-      <div class="mt-4 pt-4 border-t border-gray-800 text-xs text-red-400">
+      <div class="mt-5 pt-5 text-xs" style="border-top: 1px solid var(--border-subtle); color: #FCA5A5;">
         🚨 Gate 1: 시장성 통과 여부
       </div>
     </div>
-    <div class="card p-6 border-l-4 border-purple-500">
-      <div class="text-xs text-purple-400 font-semibold mb-2">Phase B · 설계</div>
-      <h3 class="font-bold mb-3">Day 4~5</h3>
-      <ul class="text-sm text-gray-400 space-y-1">
-        <li>• 오퍼 설계 (VPC · Van Westendorp)</li>
-        <li>• 바이럴 콘텐츠 (StoryBrand)</li>
+    <div class="card p-7" style="border-left: 3px solid #8B5CF6;">
+      <div class="text-xs font-semibold mb-3" style="color: #A78BFA; letter-spacing: 0.05em;">PHASE B · 설계</div>
+      <h3 class="serif text-xl mb-4" style="color: var(--text-primary);">Day 4~5</h3>
+      <ul class="text-sm space-y-2" style="color: var(--text-tertiary);">
+        <li>· 오퍼 설계 (VPC · Van Westendorp)</li>
+        <li>· 바이럴 콘텐츠 (StoryBrand)</li>
       </ul>
-      <div class="mt-4 pt-4 border-t border-gray-800 text-xs text-red-400">
+      <div class="mt-5 pt-5 text-xs" style="border-top: 1px solid var(--border-subtle); color: #FCA5A5;">
         🚨 Gate 2: WTP(돈 낼 의향) 검증
       </div>
     </div>
-    <div class="card p-6 border-l-4 border-orange-500">
-      <div class="text-xs text-orange-400 font-semibold mb-2">Phase C · 확장</div>
-      <h3 class="font-bold mb-3">Day 6~7</h3>
-      <ul class="text-sm text-gray-400 space-y-1">
-        <li>• 유통 장악 (AARRR · Bullseye)</li>
-        <li>• 스케일 시스템 (E-Myth · EOS)</li>
+    <div class="card p-7" style="border-left: 3px solid #F59E0B;">
+      <div class="text-xs font-semibold mb-3" style="color: #FBBF24; letter-spacing: 0.05em;">PHASE C · 확장</div>
+      <h3 class="serif text-xl mb-4" style="color: var(--text-primary);">Day 6~7</h3>
+      <ul class="text-sm space-y-2" style="color: var(--text-tertiary);">
+        <li>· 유통 장악 (AARRR · Bullseye)</li>
+        <li>· 스케일 시스템 (E-Myth · EOS)</li>
       </ul>
-      <div class="mt-4 pt-4 border-t border-gray-800 text-xs text-red-400">
-        🚨 Gate 3: CAC<LTV/3 · 반복 매출
+      <div class="mt-5 pt-5 text-xs" style="border-top: 1px solid var(--border-subtle); color: #FCA5A5;">
+        🚨 Gate 3: CAC&lt;LTV/3 · 반복 매출
       </div>
     </div>
   </div>
 
-  <div class="card p-6 bg-gradient-to-br from-orange-900/20 to-red-900/20 border-orange-700">
-    <div class="flex items-start gap-4">
+  <div class="card p-7" style="background: linear-gradient(135deg, rgba(124,45,18,0.35), rgba(154,52,18,0.15)); border-color: rgba(249,115,22,0.4);">
+    <div class="flex items-start gap-5 flex-wrap">
       <div class="text-4xl">⑧</div>
-      <div class="flex-1">
-        <h3 class="font-bold text-lg mb-2">Synthesizer · 최종 판결</h3>
-        <p class="text-sm text-gray-300 mb-3">7개 렌즈를 1개 결정으로 수렴. Multiplicative-Floor Scoring으로 치명적 약점 자동 감지.</p>
+      <div class="flex-1 min-w-[240px]">
+        <h3 class="serif text-xl mb-2" style="color: var(--text-primary);">Synthesizer · 최종 판결</h3>
+        <p class="text-sm mb-4 leading-relaxed" style="color: var(--text-secondary);">7개 렌즈를 1개 결정으로 수렴. Multiplicative-Floor Scoring으로 치명적 약점 자동 감지.</p>
         <div class="flex gap-2 flex-wrap">
-          <span class="px-3 py-1 bg-green-900/50 border border-green-700 rounded text-xs text-green-300">✅ Go</span>
-          <span class="px-3 py-1 bg-yellow-900/50 border border-yellow-700 rounded text-xs text-yellow-300">🔄 Pivot</span>
-          <span class="px-3 py-1 bg-red-900/50 border border-red-700 rounded text-xs text-red-300">❌ Kill</span>
+          <span class="px-3 py-1 rounded text-xs" style="background: rgba(6,95,70,0.4); border: 1px solid #10B981; color: #6EE7B7;">✅ Go</span>
+          <span class="px-3 py-1 rounded text-xs" style="background: rgba(180,83,9,0.4); border: 1px solid #F59E0B; color: #FCD34D;">🔄 Pivot</span>
+          <span class="px-3 py-1 rounded text-xs" style="background: rgba(127,29,29,0.4); border: 1px solid #EF4444; color: #FCA5A5;">❌ Kill</span>
         </div>
       </div>
     </div>
@@ -159,79 +307,79 @@
 </section>
 
 <!-- Features -->
-<section class="max-w-6xl mx-auto px-6 py-16">
-  <div class="text-center mb-12">
-    <h2 class="text-3xl font-bold mb-4">핵심 기능</h2>
+<section class="max-w-6xl mx-auto px-6 py-24">
+  <div class="text-center mb-16">
+    <h2 class="serif text-3xl md:text-4xl" style="line-height: 1.25;">핵심 기능</h2>
   </div>
   <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
-    <div class="card p-5">
-      <div class="text-2xl mb-2">🔀</div>
-      <h4 class="font-semibold mb-1 text-sm">하이브리드 캔버스</h4>
-      <p class="text-xs text-gray-500">n8n 스타일 드래그·줌·팬</p>
+    <div class="card p-6">
+      <div class="text-2xl mb-3">🔀</div>
+      <h4 class="font-semibold mb-1.5 text-sm" style="color: var(--text-primary);">하이브리드 캔버스</h4>
+      <p class="text-xs leading-relaxed" style="color: var(--text-tertiary);">n8n 스타일 드래그·줌·팬</p>
     </div>
-    <div class="card p-5">
-      <div class="text-2xl mb-2">🎯</div>
-      <h4 class="font-semibold mb-1 text-sm">Multiplicative-Floor Scoring</h4>
-      <p class="text-xs text-gray-500">치명적 약점 1개면 자동 Kill</p>
+    <div class="card p-6">
+      <div class="text-2xl mb-3">🎯</div>
+      <h4 class="font-semibold mb-1.5 text-sm" style="color: var(--text-primary);">Multiplicative-Floor Scoring</h4>
+      <p class="text-xs leading-relaxed" style="color: var(--text-tertiary);">치명적 약점 1개면 자동 Kill</p>
     </div>
-    <div class="card p-5">
-      <div class="text-2xl mb-2">📋</div>
-      <h4 class="font-semibold mb-1 text-sm">BMC 학습 가이드</h4>
-      <p class="text-xs text-gray-500">공간 기반 아이템 · 교육 서비스 · B2B 컨설팅 예시</p>
+    <div class="card p-6">
+      <div class="text-2xl mb-3">📋</div>
+      <h4 class="font-semibold mb-1.5 text-sm" style="color: var(--text-primary);">BMC 학습 가이드</h4>
+      <p class="text-xs leading-relaxed" style="color: var(--text-tertiary);">공간 기반 아이템 · 교육 서비스 · B2B 컨설팅 예시</p>
     </div>
-    <div class="card p-5">
-      <div class="text-2xl mb-2">🔴🟡🟢</div>
-      <h4 class="font-semibold mb-1 text-sm">점수별 피드백 카드</h4>
-      <p class="text-xs text-gray-500">Pivot 방향 구체 제시</p>
+    <div class="card p-6">
+      <div class="text-2xl mb-3">🟢🟡🔴</div>
+      <h4 class="font-semibold mb-1.5 text-sm" style="color: var(--text-primary);">점수별 피드백 카드</h4>
+      <p class="text-xs leading-relaxed" style="color: var(--text-tertiary);">Pivot 방향 구체 제시</p>
     </div>
-    <div class="card p-5">
-      <div class="text-2xl mb-2">📄</div>
-      <h4 class="font-semibold mb-1 text-sm">PDF 리포트</h4>
-      <p class="text-xs text-gray-500">내부 의사결정·투자자 미팅·제안 검토 자료로 활용</p>
+    <div class="card p-6">
+      <div class="text-2xl mb-3">📄</div>
+      <h4 class="font-semibold mb-1.5 text-sm" style="color: var(--text-primary);">PDF 리포트</h4>
+      <p class="text-xs leading-relaxed" style="color: var(--text-tertiary);">내부 의사결정·투자자 미팅·제안 검토 자료로 활용</p>
     </div>
-    <div class="card p-5">
-      <div class="text-2xl mb-2">💾</div>
-      <h4 class="font-semibold mb-1 text-sm">100% 로컬 저장</h4>
-      <p class="text-xs text-gray-500">IndexedDB · 개인정보 유출 0</p>
+    <div class="card p-6">
+      <div class="text-2xl mb-3">💾</div>
+      <h4 class="font-semibold mb-1.5 text-sm" style="color: var(--text-primary);">100% 로컬 저장</h4>
+      <p class="text-xs leading-relaxed" style="color: var(--text-tertiary);">IndexedDB · 개인정보 유출 0</p>
     </div>
-    <div class="card p-5">
-      <div class="text-2xl mb-2">🤖</div>
-      <h4 class="font-semibold mb-1 text-sm">AI 교차 검증</h4>
-      <p class="text-xs text-gray-500">자기확신과 시장 근거의 불일치를 점검</p>
+    <div class="card p-6">
+      <div class="text-2xl mb-3">🤖</div>
+      <h4 class="font-semibold mb-1.5 text-sm" style="color: var(--text-primary);">AI 교차 검증</h4>
+      <p class="text-xs leading-relaxed" style="color: var(--text-tertiary);">자기확신과 시장 근거의 불일치를 점검</p>
     </div>
-    <div class="card p-5">
-      <div class="text-2xl mb-2">⚡</div>
-      <h4 class="font-semibold mb-1 text-sm">설치 없이 실행</h4>
-      <p class="text-xs text-gray-500">설치 없이 실행 가능한 경량 검증 도구</p>
+    <div class="card p-6">
+      <div class="text-2xl mb-3">⚡</div>
+      <h4 class="font-semibold mb-1.5 text-sm" style="color: var(--text-primary);">설치 없이 실행</h4>
+      <p class="text-xs leading-relaxed" style="color: var(--text-tertiary);">설치 없이 실행 가능한 경량 검증 도구</p>
     </div>
-    <div class="card p-5">
-      <div class="text-2xl mb-2">💰</div>
-      <h4 class="font-semibold mb-1 text-sm">예산 적합성 검토</h4>
-      <p class="text-xs text-gray-500">실제 예산 규모·조달 구조·실행 조건에 맞는지 점검</p>
+    <div class="card p-6">
+      <div class="text-2xl mb-3">💰</div>
+      <h4 class="font-semibold mb-1.5 text-sm" style="color: var(--text-primary);">예산 적합성 검토</h4>
+      <p class="text-xs leading-relaxed" style="color: var(--text-tertiary);">실제 예산 규모·조달 구조·실행 조건에 맞는지 점검</p>
     </div>
-    <div class="card p-5">
-      <div class="text-2xl mb-2">🏛️</div>
-      <h4 class="font-semibold mb-1 text-sm">공공/민간 실행성 점검</h4>
-      <p class="text-xs text-gray-500">공공기관·교육기관·민간 프로젝트 전환 리스크 검토</p>
+    <div class="card p-6">
+      <div class="text-2xl mb-3">🏛️</div>
+      <h4 class="font-semibold mb-1.5 text-sm" style="color: var(--text-primary);">공공/민간 실행성 점검</h4>
+      <p class="text-xs leading-relaxed" style="color: var(--text-tertiary);">공공기관·교육기관·민간 프로젝트 전환 리스크 검토</p>
     </div>
   </div>
 </section>
 
 <!-- Creator -->
-<section class="max-w-4xl mx-auto px-6 py-16">
-  <div class="card p-8 bg-gradient-to-br from-gray-900 to-black">
-    <div class="flex items-start gap-6 flex-wrap">
+<section class="max-w-4xl mx-auto px-6 py-24">
+  <div class="card p-10" style="background: linear-gradient(135deg, var(--bg-elevated), var(--bg-panel));">
+    <div class="flex items-start gap-7 flex-wrap">
       <div class="text-5xl">👤</div>
-      <div class="flex-1 min-w-[250px]">
-        <h3 class="text-2xl font-bold mb-2">김재순 · Tobis Lab CEO</h3>
-        <div class="text-sm text-gray-400 mb-5 space-y-1.5">
-          <div>📈 비즈니스 경력 <b class="text-gray-200">20년+</b></div>
-          <div>🏢 <b class="text-gray-200">Tobis Lab</b> 2014년 설립·운영</div>
+      <div class="flex-1 min-w-[280px]">
+        <h3 class="serif text-2xl mb-3" style="color: var(--text-primary);">김재순 · Tobis Lab CEO</h3>
+        <div class="text-sm mb-6 space-y-1.5" style="color: var(--text-tertiary);">
+          <div>📈 비즈니스 경력 <b style="color: var(--text-secondary);">20년+</b></div>
+          <div>🏢 <b style="color: var(--text-secondary);">Tobis Lab</b> 2014년 설립·운영</div>
           <div>🛠 전시디자인 · 공간 브랜딩 · 교육공간</div>
           <div>📑 공공조달 · RFP/SOW · 공공/민간 프로젝트 전략</div>
           <div>🎓 한양여대 · 건국대 겸임교수 · 미래 교육공간 연구</div>
         </div>
-        <p class="text-sm text-gray-300 leading-relaxed">
+        <p class="serif text-base leading-relaxed" style="color: var(--text-secondary); font-style: italic;">
           "아이디어보다 중요한 것은 검증 순서입니다.
           20년 넘게 전시디자인, 공간 브랜딩, 교육공간, 공공조달, RFP/SOW, 공공/민간 프로젝트 현장에서 느낀 문제는 명확했습니다.
           많은 아이템이 실패해서가 아니라, 검증 전에 돈과 시간을 먼저 쓰기 때문에 무너집니다.
@@ -243,73 +391,63 @@
 </section>
 
 <!-- Final CTA -->
-<section class="max-w-3xl mx-auto px-6 py-20">
-  <div class="card p-10 text-center bg-gradient-to-br from-orange-900/20 to-red-900/20 border-orange-700">
-    <h2 class="text-3xl md:text-4xl font-bold mb-4">
+<section class="max-w-3xl mx-auto px-6 py-24">
+  <div class="card p-12 text-center" style="background: linear-gradient(135deg, rgba(124,45,18,0.3), rgba(127,29,29,0.15)); border-color: rgba(249,115,22,0.4);">
+    <h2 class="serif text-3xl md:text-4xl mb-5" style="line-height: 1.25;">
       지금 바로 <span class="gradient-text">검증을 시작</span>하세요
     </h2>
-    <p class="text-gray-400 mb-8">
+    <p class="mb-10 text-base" style="color: var(--text-secondary);">
       설치·로그인 없이 브라우저에서 바로 실행<br>
-      <span class="text-sm text-gray-500">100% 로컬 저장 · 데이터 외부 전송 없음</span>
+      <span class="text-sm" style="color: var(--text-tertiary);">100% 로컬 저장 · 데이터 외부 전송 없음</span>
     </p>
-
-    <a
-      href="/app"
-      onclick="trackEvent('final_cta')"
-      class="btn-primary inline-block px-10 py-4 rounded-lg font-bold text-white text-lg">
+    <a href="/app" onclick="trackEvent('final_cta')" class="btn-primary inline-block px-10 py-4 rounded-lg font-semibold text-white text-base">
       Tobis Growth OS 실행하기 →
     </a>
   </div>
 </section>
 
 <!-- FAQ -->
-<section class="max-w-3xl mx-auto px-6 py-16">
-  <h2 class="text-2xl font-bold mb-8 text-center">자주 묻는 질문</h2>
+<section class="max-w-3xl mx-auto px-6 py-24">
+  <h2 class="serif text-2xl md:text-3xl mb-12 text-center" style="line-height: 1.25;">자주 묻는 질문</h2>
   <div class="space-y-3">
-    <details class="card p-5 cursor-pointer">
-      <summary class="font-semibold">Q. 바로 사용할 수 있나요?</summary>
-      <p class="mt-3 text-sm text-gray-400">네. 별도 신청 없이 앱 실행 버튼을 누르면 바로 사용할 수 있습니다.</p>
+    <details class="card p-6">
+      <summary class="font-semibold" style="color: var(--text-primary);">Q. 바로 사용할 수 있나요?</summary>
+      <p class="mt-3 text-sm leading-relaxed" style="color: var(--text-tertiary);">네. 별도 신청 없이 앱 실행 버튼을 누르면 바로 사용할 수 있습니다.</p>
     </details>
-    <details class="card p-5 cursor-pointer">
-      <summary class="font-semibold">Q. 제 데이터는 어디에 저장되나요?</summary>
-      <p class="mt-3 text-sm text-gray-400">100% 브라우저 로컬(IndexedDB)에만 저장됩니다. 서버 전송 없음. 프라이버시 완벽 보호.</p>
+    <details class="card p-6">
+      <summary class="font-semibold" style="color: var(--text-primary);">Q. 제 데이터는 어디에 저장되나요?</summary>
+      <p class="mt-3 text-sm leading-relaxed" style="color: var(--text-tertiary);">100% 브라우저 로컬(IndexedDB)에만 저장됩니다. 서버 전송 없음. 프라이버시 완벽 보호.</p>
     </details>
-    <details class="card p-5 cursor-pointer">
-      <summary class="font-semibold">Q. 검증에 꼭 7일이 필요한가요?</summary>
-      <p class="mt-3 text-sm text-gray-400">아니요. 하루 1단계씩 7일이 기본이지만, 집중하면 2~3일 단축 가능합니다.</p>
+    <details class="card p-6">
+      <summary class="font-semibold" style="color: var(--text-primary);">Q. 검증에 꼭 7일이 필요한가요?</summary>
+      <p class="mt-3 text-sm leading-relaxed" style="color: var(--text-tertiary);">아니요. 하루 1단계씩 7일이 기본이지만, 집중하면 2~3일 단축 가능합니다.</p>
     </details>
-    <details class="card p-5 cursor-pointer">
-      <summary class="font-semibold">Q. 어떤 아이템 검증에 적합한가요?</summary>
-      <p class="mt-3 text-sm text-gray-400">공간 기반 아이템, 교육 서비스, 로컬 비즈니스, B2B 컨설팅, 공공/민간 프로젝트 전환 가능성이 있는 아이템에 적합합니다.</p>
+    <details class="card p-6">
+      <summary class="font-semibold" style="color: var(--text-primary);">Q. 어떤 아이템 검증에 적합한가요?</summary>
+      <p class="mt-3 text-sm leading-relaxed" style="color: var(--text-tertiary);">공간 기반 아이템, 교육 서비스, 로컬 비즈니스, B2B 컨설팅, 공공/민간 프로젝트 전환 가능성이 있는 아이템에 적합합니다.</p>
     </details>
-    <details class="card p-5 cursor-pointer">
-      <summary class="font-semibold">Q. 기술 지식이 없어도 사용 가능한가요?</summary>
-      <p class="mt-3 text-sm text-gray-400">네. 브라우저 실행·드래그·슬라이더 조작만으로 사용할 수 있습니다. 설치·로그인 불필요.</p>
+    <details class="card p-6">
+      <summary class="font-semibold" style="color: var(--text-primary);">Q. 기술 지식이 없어도 사용 가능한가요?</summary>
+      <p class="mt-3 text-sm leading-relaxed" style="color: var(--text-tertiary);">네. 브라우저 실행·드래그·슬라이더 조작만으로 사용할 수 있습니다. 설치·로그인 불필요.</p>
     </details>
   </div>
 </section>
 
 <!-- Footer -->
-<footer class="border-t border-gray-800 mt-16">
+<footer style="border-top: 1px solid var(--border-subtle);">
   <div class="max-w-6xl mx-auto px-6 py-10 text-center">
-    <a href="https://tobislab.com/" target="_blank" rel="noopener" class="text-xs text-gray-500 hover:text-gray-300 transition">
+    <a href="https://tobislab.com/" target="_blank" rel="noopener" class="text-xs hover:opacity-80 transition" style="color: var(--text-quaternary);">
       Built by Tobis Lab
     </a>
   </div>
 </footer>
 
 <script>
-  // Track CTA clicks
   function trackEvent(action) {
     if (typeof gtag !== 'undefined') {
-      gtag('event', action, {
-        'event_category': 'CTA',
-        'event_label': action
-      });
+      gtag('event', action, { 'event_category': 'CTA', 'event_label': action });
     }
   }
-
-  // Scroll depth tracking
   let maxScroll = 0;
   window.addEventListener('scroll', () => {
     const scrollPercent = Math.round((window.scrollY + window.innerHeight) / document.body.scrollHeight * 100);
